@@ -2,7 +2,7 @@ import { useState } from "react";
 import "./Card.css";
 import abbLogo from "../assets/ABB.png";
 
-const BusinessCard = ({ name, education, jobTitle, company, email }) => {
+const BusinessCard = ({ name, education, jobTitle, company, email, phoneNumber, address }) => {
   const [showEmail, setShowEmail] = useState(false);
 
   const toggleEmailVisibility = () => {
@@ -16,6 +16,8 @@ const BusinessCard = ({ name, education, jobTitle, company, email }) => {
       <p>{education}</p>
       <p>{jobTitle}</p>
       <p>{company}</p>
+      <p>{phoneNumber}</p>
+      <p>{address}</p>
       <button onClick={toggleEmailVisibility}>Show Contact Details</button>
       {showEmail && <p>{email}</p>}
     </div>

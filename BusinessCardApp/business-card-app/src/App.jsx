@@ -7,6 +7,8 @@ const myBusinessCard = {
   jobTitle: "Information Technology Engineering Intern",
   company: "ABB",
   email: "angelika.ervasti@hotmail.fi",
+  phoneNumber: "+358 40 123 4567",
+  address: "ABB Oy, Smart Power, Muottitie 2, 65320 Vaasa"
 };
 
 const johnDoeCard = {
@@ -15,6 +17,9 @@ const johnDoeCard = {
   jobTitle: "Senior Software Engineer",
   company: "ABB",
   email: "john.doe@hotmail.com",
+  phoneNumber: "+358 40 765 4321",
+  address: "ABB Oy, Smart Power, Muottitie 2, 65320 Vaasa"
+
 };
 
 const janeSmithCard = {
@@ -23,6 +28,8 @@ const janeSmithCard = {
   jobTitle: "Project Manager",
   company: "ABB",
   email: "jane.smith@hotmail.com",
+  phoneNumber: "+358 40 987 6543",
+  address: "ABB Oy, Smart Power, Muottitie 2, 65320 Vaasa"
 };
 
 const App = () => {
@@ -38,7 +45,7 @@ const App = () => {
 
   return (
     <div>
-      <h1>Show email</h1>
+      <h1>Show information</h1>
       <input
         type="text"
         placeholder="Search"
