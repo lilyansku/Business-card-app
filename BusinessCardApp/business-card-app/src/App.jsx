@@ -1,35 +1,57 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from "react";
+import BusinessCard from "./components/BusinessCard";
 
-function App() {
-  const [count, setCount] = useState(0)
+const myBusinessCard = {
+  name: "Angelika Ervasti",
+  education: "Vaasa University of Applied Sciences",
+  jobTitle: "Information Technology Engineering Intern",
+  company: "ABB",
+  email: "angelika.ervasti@hotmail.fi",
+};
+
+const johnDoeCard = {
+  name: "John Doe",
+  education: "University of Vaasa",
+  jobTitle: "Senior Software Engineer",
+  company: "ABB",
+  email: "john.doe@hotmail.com",
+};
+
+const janeSmithCard = {
+  name: "Jane Smith",
+  education: "University of Vaasa",
+  jobTitle: "Project Manager",
+  company: "ABB",
+  email: "jane.smith@hotmail.com",
+};
+
+const App = () => {
+  const [search, setSearch] = useState("");
+  const businessCards = [myBusinessCard, johnDoeCard, janeSmithCard];
+
+  const filteredCards = businessCards.filter(
+    (card) =>
+      card.name.toLowerCase().includes(search.toLowerCase()) ||
+      card.company.toLowerCase().includes(search.toLowerCase()) ||
+      card.jobTitle.toLowerCase().includes(search.toLowerCase())
+  );
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <div>
+      <h1>Show email</h1>
+      <input
+        type="text"
+        placeholder="Search"
+        value={search}
+        onChange={(e) => setSearch(e.target.value)}
+      />
+      <div className="card-container">
+        {filteredCards.map((card, index) => (
+          <BusinessCard key={index} {...card} />
+        ))}
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+    </div>
+  );
+};
 
-export default App
+export default App;
